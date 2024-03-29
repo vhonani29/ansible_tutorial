@@ -1,0 +1,11 @@
+--- 
+
+- name: Copy Scripts Between Machines
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Copy Scripts To Remote Machine
+      copy:
+        src: /home/vhonani/Documents/startr.sh
+        dest: /home/vhonani/Documents/startr.sh

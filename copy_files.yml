@@ -1,0 +1,11 @@
+---
+
+- name: Copy File Between Machines 
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Copy File to Remote Machine 
+      copy:
+        src: /home/vhonani/Documents/test
+        dest: /home/vhonani/Documents/test
