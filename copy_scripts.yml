@@ -8,4 +8,4 @@
     - name: Copy Scripts To Remote Machine
       copy:
         src: /home/vhonani/Documents/startr.sh
-        dest: /home/vhonani/Documents/startr.sh
+        dest: /home/natisuser/Documents

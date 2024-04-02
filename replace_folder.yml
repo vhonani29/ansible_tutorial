@@ -1,0 +1,14 @@
+---
+
+- name: Replace Folder on Remote Machine
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Synchronize Folder
+      synchronize:
+        src: /home/vhonani/Documents/mfa
+        dest: /home/natisuser/apps/NaTIS/
+        delete: yes
+
+
