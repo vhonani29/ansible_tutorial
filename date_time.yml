@@ -1,0 +1,12 @@
+---
+- name: Check Date and Time
+  hosts: dev
+  gather_facts: no
+  tasks:
+    - name: Get system date and time
+      command: date
+      register: system_date_time
+
+    - name: Display system date and time
+      debug:
+        msg: "System Date and Time: {{ system_date_time.stdout }}"

@@ -1,0 +1,10 @@
+---
+- name: Set system date and time
+  hosts: dev
+  become: yes
+  vars:
+    system_time: "2025-01-30 17:23"
+  tasks:
+    - name: Set system date and time using timedatectl
+      command: "timedatectl set-time '{{ system_time }}'"
+      when: system_time is defined

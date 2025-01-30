@@ -1,0 +1,27 @@
+---
+
+- name: Change hostname on target machines
+  hosts: dev
+  become: yes  # Elevate privileges to make system changes
+  vars:
+    loopback_address: "127.0.1.1"  # Standard loopback for hostname resolution
+  tasks:
+    - name: Set the system hostname
+      ansible.builtin.hostname:
+        name: "{{ hostname }}"
+
+    - name: Update the hostname in /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        regexp: "^{{ loopback_address }} "
+        line: "{{ loopback_address }} {{ hostname }}"
+        state: present
+
+    - name: Verify the hostname change
+      command: hostnamectl
+      register: result
+
+    - name: Display hostnamectl output
+      debug:
+        var: result.stdout
+
