@@ -1,0 +1,9 @@
+---
+- name: Reboot Hosts
+  hosts: seu_qa
+  become: true
+
+  tasks:
+    - name: Reboot the hosts
+      ansible.builtin.reboot:
+        reboot_timeout: 300  # Timeout in seconds, adjust as needed
