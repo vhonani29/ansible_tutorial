@@ -1,4 +1,4 @@
 # ansible_tutorial
 
 
-This is my first git experience learning ansible 
+ansible inventory and playbooks for practice 
